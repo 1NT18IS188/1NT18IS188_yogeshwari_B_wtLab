@@ -1,0 +1,35 @@
+<!-- Title:To output a random image -->
+<!-- Description:javascript program  to output a random image on clicking  a -->
+<!-- Author:Yogeshwari A-->
+<!-- Date:06-05-2021 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="DOMS.css" />
+    <title>Random Image</title>
+  </head>
+  <body>
+    <div>
+      <img src="images/SKZ-logo.png" id="img1" />
+    </div>
+  </body>
+
+  <script type="text/javascript" src="rnd_img.js">
+let obj = document.getElementById("img1");
+var arr = [];
+arr.push("images/bts-logo.png");
+arr.push("images/AZ-logo.jpg");
+arr.push("images/Big_Bang_logo.png");
+arr.push("images/exo_logo.png");
+arr.push("images/SKZ-logo.png");
+
+obj.addEventListener("click", () => {
+  var i = Math.floor(Math.random() * 5);
+  obj.src = arr[i];
+});
+</script>
+</html>
