@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nmit Website</title>
+   
+</head>
+<body style="background-color: darkslategray; border:black; border-style: solid;">
+   <centre> <h1 style="font-size: 20px; font-family: 'Courier New', Courier, monospace;">NMIT  EMPLOYEE WEBSITE</h1></centre>
+        <centre >
+            
+            
+            <table style="border: 3px solid black;  background-color:lightsteelblue ">
+            <tr>
+            
+            <td>
+            Faculty id:
+            </td>
+            <td>
+            <input type="text"  id="fid" placeholder="ID" title="input of the form NMITIS878" pattern="[NMIT[A-Z]{2}\d{3}]" ></td></tr>
+            <tr><td>
+                Faculty Name </td><td><input type="text" name="issuer" id="fname"   ></td></tr>
+            <tr><td>
+          Department Name </td><td><input type="text" name="issuer" id="dep"   ></td></tr>
+          <tr><td>
+            Subjects handled  </td><td><input type="text" name="issuer" id="sh"   ></td></tr>
+              
+          <tr>
+            <td>
+            Phone number:
+            </td>
+            <td>
+            <input type="Number"  name="ename"  id="nid"  title="please enter a 10 digit number"></td></tr>
+            
+            <tr>
+            <td>
+            
+            </td>
+            </tr>
+            <tr>
+            
+            <td>
+           Years of experience
+            </td>
+            <td>
+            <input type="text"  name="rissue"  id="yexp" ></td></tr>
+            <tr>
+            
+            <td>
+            Higeshest qualification
+            </td>
+            <td>
+            <input type="text"  name="yissue"  id="adid"  ></td></tr>
+           
+            <tr>
+            <td>
+                <button id='submit'>submit</button>
+            </td></tr>
+            
+            </table>
+        
+            <br>
+            
+            <div  style="color:maroon; font-weight: 10px;"> faculty id:    <span id="fn"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> faculty name:     <span id="fn1"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> department name:   <span id="fn2"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> years of experience: <span id="fn3"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> subjects handled:   <span id="fn4"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> higesht qualification:  <span id="fn5"></span></div>
+
+            </centre>
+            <h3>search for a particular faculty </h3>
+            <h2> <input id='sea' type='text'></h2><button  type="button" id="search">submit</button>
+            <div id="tex"></div><br>
+            
+        
+            <h2> search faculty with most years of experience</h2><button  type="button" id="search1">submit</button>
+            <div id="tex1"></div><br>
+            <div  style="color:maroon; font-weight: 10px;"> faculty id:    <span id="fnc"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> faculty name:     <span id="fnc1"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> department name:   <span id="fnc2"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> years of experience: <span id="fnc3"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> subjects handled:   <span id="fnc4"></span></div>
+           <div style="color:maroon; font-weight: 10px;"> higesht qualification:  <span id="fnc5"></span></div>
+            <script >
+                alert("welcome to the Nmit  employee information portal");
+let data= new Array;
+
+let submit=document.getElementById('submit');
+submit.addEventListener('click',()=>{
+    let id=document.getElementById('fid').value;
+    let name=document.getElementById('fname').value;
+    let dep=document.getElementById('dep').value;
+    let phone=document.getElementById('nid').value;
+    let yexp=document.getElementById('yexp').value;
+    let hq=document.getElementById('adid').value;
+    let data1=new Array;
+    data1.push(document.getElementById('sh').value);
+    let elem= new Object;
+    elem.name=name;
+    elem.id=id;
+    elem.dep=dep;
+    elem.phone=phone;
+    elem.yexp= yexp;
+    elem.hq=hq;
+    elem.data1= data1;
+    data.push(elem);
+    console.log(data);
+    document.getElementById('fn').innerHTML += document.getElementById('fid').value;
+    document.getElementById('fn1').innerHTML += document.getElementById('fname').value;
+    document.getElementById('fn2').innerHTML += document.getElementById('dep').value;
+    document.getElementById('fn3').innerHTML += document.getElementById('yexp').value;
+    document.getElementById('fn4').innerHTML += document.getElementById('sh').value;
+    document.getElementById('fn5').innerHTML += document.getElementById('adid').value;
+})
+let search=document.getElementById('search');
+search.addEventListener('click',()=>{
+    let search=document.getElementById('sea').value;
+    for(let i=0;i<data.length;i++)
+    {
+        if(data[i].id==search)
+        {
+            console.log(data[i]);
+        }
+        else
+        {
+            document.getElementById("tex" ).innerHTML += "enter a valid usn";
+        }
+    }})
+ 
+    let search1=document.getElementById('search1');
+search1.addEventListener('click',()=>{
+    let con=data[0].yexp;
+    var b=data[0].yexp;
+    var c=0;
+    for(var i=0;i<data.length;i++)
+    {
+        if(data[i].yexp>b)
+        {
+            var  b=data[i].yexp;
+            c=i;
+        }
+       
+    }
+    document.getElementById('fnc').innerHTML += data[c].id;
+    document.getElementById('fnc1').innerHTML += data[c].name;
+    document.getElementById('fnc2').innerHTML += data[c].dep;
+    document.getElementById('fnc3').innerHTML += data[c].yexp;
+    document.getElementById('fnc4').innerHTML += data[c].data1;
+    document.getElementById('fnc5').innerHTML += data[c].hq;
+    console.log(b);
+})
+
+
+            </script>
+</body>
+
+</html>
